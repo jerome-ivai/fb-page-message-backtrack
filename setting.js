@@ -1,13 +1,12 @@
-// Prod
-// const ACCES_TOKEN = 'EAAFEh3alqAQBANzypaJEZAvROdHXYq9CTUyo1bJIXDfuFWGwwA3YZC49AoXtepOyvDnRYeJUuXZBn9duqgSyn7gVYiTS1qZCQCdPZC3LyWUZAmegiobtswNB2mrIthnsBoylAsBrrC5pl0ZAcBXVp9i63x5xNg8riChaouzhvuZCE7ZAZBxKMiX3OuFwnjQ0ZCAVqoZD'
-// const PAGE_ID = '148370235185103'
 
-//staging
-const ACCES_TOKEN = 'EAAH6VAHgS2IBAL6EdBQorhsoaQa6YevZCPYDsWkaAoKftHNVYKJkjze2mfCHSqkdwj00ZCPZA22hjZCM8X1ZB0ESZCO4axrglOZADhPkQZAPpDg9ZA0A84oh6pivfRf4XppFmz6cLtc1yZAUsdmcC9pGssC9tlqh2LQ0etZANyWhW2VngrnTe5yQFZCnEixuugCxOyYZD'
-const PAGE_ID = '105249351552976'
+if (process.env.LOG_LEVEL === undefined) {
+    const dotenv = require('dotenv')
+    dotenv.config()
+  }
+  
 
-//Dev
-// const ACCES_TOKEN = 'EAApIwtpQLXUBAGVbYvbE8aQZBeI8Axv5kXvQaCGXEkgu90drvpuaAFRcrlMSqhL2Ou4O4ZA0Reitbi0fTOvhvsDpPpxO8fvg24nOjenLjlQeCBsCkuKCPJjltE0ivkLJ3wNvjpErxLRZCrQuyYGJ2BMfjm4NyTZAX79rezMpd9MNhb11fM7K'
-// const PAGE_ID = '107229971541447'
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN || ''
+const  PAGE_ID = process.env.PAGE_ID || ''
 
-module.exports  = {ACCES_TOKEN,PAGE_ID}
+
+module.exports  = {ACCESS_TOKEN,PAGE_ID}

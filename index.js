@@ -1,13 +1,12 @@
 const FB = require('fb');
-const { default: fb } = require('fb/lib/fb');
 const fs = require('fs')
-const {ACCES_TOKEN, PAGE_ID} = require('./setting')
+const {ACCESS_TOKEN, PAGE_ID} = require('./setting')
 
 //const ACCESS_TOKEN = 'EAApIwtpQLXUBAGVbYvbE8aQZBeI8Axv5kXvQaCGXEkgu90drvpuaAFRcrlMSqhL2Ou4O4ZA0Reitbi0fTOvhvsDpPpxO8fvg24nOjenLjlQeCBsCkuKCPJjltE0ivkLJ3wNvjpErxLRZCrQuyYGJ2BMfjm4NyTZAX79rezMpd9MNhb11fM7K';
 
 const main = async () => {
 
-    await FB.setAccessToken(ACCES_TOKEN);
+    await FB.setAccessToken(ACCESS_TOKEN);
 
     // await FB.getLoginUrl({
     //     scope: 'email,pages_messaging,pages_metadata,pages_read_engagement,manage_pages',
@@ -46,7 +45,7 @@ const main = async () => {
                     'GET',
                     {
                         "fields": "messages{message,to,from}",
-                        "access_token": "EAApIwtpQLXUBAGVbYvbE8aQZBeI8Axv5kXvQaCGXEkgu90drvpuaAFRcrlMSqhL2Ou4O4ZA0Reitbi0fTOvhvsDpPpxO8fvg24nOjenLjlQeCBsCkuKCPJjltE0ivkLJ3wNvjpErxLRZCrQuyYGJ2BMfjm4NyTZAX79rezMpd9MNhb11fM7K"
+                        "access_token": ACCESS_TOKEN
                     }).then(
                         (response) => {
                             // console.log('response2', response)
