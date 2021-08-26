@@ -21,7 +21,9 @@ const main = async () => {
             })
             return data
         })
-            .catch()
+            .catch((error)=>{
+                console.log('error', error)
+            })
 
     }
 
@@ -50,7 +52,9 @@ const main = async () => {
                             })
                         }
                     )
-                    .catch()
+                    .catch((error)=>{
+                        console.log('error', error)
+                    })
             }
             )
         )
@@ -63,12 +67,13 @@ const main = async () => {
     // console.log('final', JSON.stringify(final,null,' '))
 
     let dataToWrite = JSON.stringify(final, null, ' ')
-    fs.writeFile('data.json', dataToWrite, (err) => {
+     fs.writeFile('data.json', dataToWrite, (err) => {
         if (err) {
             throw err;
         }
         console.log("JSON data is saved.");
     });
+
 }
 
 
