@@ -1,17 +1,10 @@
 const FB = require('fb');
 const fs = require('fs')
-const {ACCESS_TOKEN, PAGE_ID} = require('./setting')
-
-//const ACCESS_TOKEN = 'EAApIwtpQLXUBAGVbYvbE8aQZBeI8Axv5kXvQaCGXEkgu90drvpuaAFRcrlMSqhL2Ou4O4ZA0Reitbi0fTOvhvsDpPpxO8fvg24nOjenLjlQeCBsCkuKCPJjltE0ivkLJ3wNvjpErxLRZCrQuyYGJ2BMfjm4NyTZAX79rezMpd9MNhb11fM7K';
+const { ACCESS_TOKEN, PAGE_ID } = require('./setting')
 
 const main = async () => {
 
     await FB.setAccessToken(ACCESS_TOKEN);
-
-    // await FB.getLoginUrl({
-    //     scope: 'email,pages_messaging,pages_metadata,pages_read_engagement,manage_pages',
-    //     client_id: '556713692384098'
-    // });
 
     const getIds = () => {
         let data = []
@@ -34,8 +27,6 @@ const main = async () => {
 
     let ids = await getIds()
 
-    console.log('ahhh', ids)
-
     const getConvo = async (ids) => {
         let c = []
         await Promise.all(
@@ -48,7 +39,6 @@ const main = async () => {
                         "access_token": ACCESS_TOKEN
                     }).then(
                         (response) => {
-                            // console.log('response2', response)
 
                             let { messages } = response
                             messages.data.map(x => {
@@ -57,35 +47,22 @@ const main = async () => {
                                     "from": x.from.name,
                                     "to": x.to.data[0].name
                                 })
-
-                                //     console.log('convo',convo)
                             })
-
-                            //return JSON.stringify(respon
-
                         }
-
-
                     )
                     .catch()
-
-
             }
             )
-
         )
 
         return c
     }
 
-    //console.log('final', await getConvo(ids))
-
     let final = await getConvo(ids)
 
+    // console.log('final', JSON.stringify(final,null,' '))
 
-   // console.log('final', JSON.stringify(final,null,' '))
-
-    let dataToWrite = JSON.stringify(final,null,' ')
+    let dataToWrite = JSON.stringify(final, null, ' ')
     fs.writeFile('data.json', dataToWrite, (err) => {
         if (err) {
             throw err;
